@@ -1,1 +1,200 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'New Tegomin', serif;
+  color: black;
+  min-height: 100vh;
+  background-image: linear-gradient(
+      0deg,
+      rgba(255,255,255, 0.9),
+      rgba(240,240,240, 0.9)
+    ),
+    url("../img/banner 1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+svg,i{
+    pointer-events: none;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    font-size: 3.5rem;
+    color: #a8012a;
+    text-shadow: 0.1rem 0.1rem 0.5rem #1a000788;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.sequences{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.kick-track,.snare-track,.hihat-track,.ride-track{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.controls{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+}
+.controls h2{
+    color: #4b0013;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0rem 0.1rem 0.5rem #b17272;
+}
+.controls button {
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border: none;
+    outline: none;
+    font-size: 1.8rem;
+    background-color: #6B2033;
+    color: #e67490;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.controls button:hover{
+    color: #6B2033;
+    background-color: #e67490;
+}
+.controls .select-container{
+    position: relative;
+    display: flex;
+    border: none;
+    outline: none;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.controls .select-container select{
+    display: flex;
+    align-items: flex-start;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    color: #B8002E;
+    padding: 0.2rem 1rem;
+    font-size: 1.6rem;
+    font-family: 'New Tegomin', sans-serif;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.controls .select-container::after{
+  content: '\25bc';
+  padding: 0.3rem;
+  height: 78%;
+  color:white;
+  font-size: 1.4rem;
+  background-color: #EB0039;
+  position:absolute;
+  top: 0;
+  right: 0;
+  pointer-events:none;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transform: translate(-1rem);
+  -webkit-transform: translate(-1rem);
+  -moz-transform: translate(-1rem);
+  -ms-transform: translate(-1rem);
+  -o-transform: translate(-1rem);
+  border-radius: 0 0.5rem 0.5rem 0;
+  -webkit-border-radius: 0 0.5rem 0.5rem 0;
+  -moz-border-radius: 0 0.5rem 0.5rem 0;
+  -ms-border-radius: 0 0.5rem 0.5rem 0;
+  -o-border-radius: 0 0.5rem 0.5rem 0;
+}
+.controls .select-container:hover:after{
+  color:#EB0039;
+  background-color: white;
+}
+.kick,.snare,.hihat,.ride {
+    display: flex;
+}
+.pad{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    border: none;
+    background-color: red;
+    margin: 1rem;
+    cursor: pointer;
+}
+.kick-pad{
+    background-color: rgb(175, 224, 208);
+}
+.kick-pad.active{
+    background-color: rgb(22, 214, 150);
+}
+.snare-pad{
+    background-color: rgb(224, 175, 191);
+}
+.snare-pad.active{
+    background-color: rgb(221, 25, 90);
+}
+.hihat-pad{
+    background-color: rgb(224, 208, 175);
+}
+.hihat-pad.active{
+    background-color: rgb(228, 160, 25);
+}
+.ride-pad{
+    background-color: rgb(194, 224, 175);
+}
+.ride-pad.active{
+    background-color: rgb(93, 214, 18);
+}
+.play{
+    border: none;
+    outline: none;
+    cursor:pointer;
+    background-color: #6B2033;
+    color: #E67490;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 3rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0rem rgb(228, 128, 128);
+    border-radius: 0.7rem;
+    -webkit-border-radius: 0.7rem;
+    -moz-border-radius: 0.7rem;
+    -ms-border-radius: 0.7rem;
+    -o-border-radius: 0.7rem;
+}
+.play:hover{
+    color: #6B2033;
+    background-color: #E67490;
+}
