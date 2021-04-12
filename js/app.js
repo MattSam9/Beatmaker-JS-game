@@ -38,7 +38,6 @@ class DrumKit{
           }
         });
         this.index++;
-        console.log(step);
     }
     start() {
         const interval = (60 / this.bpm) * 1000;
