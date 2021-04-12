@@ -53,7 +53,6 @@ class DrumKit{
             this.playBtn.innerText = "Play";
         }
     }
-    
     reset() {
         this.index = 0;
         clearInterval(this.isPlaying);
@@ -62,6 +61,11 @@ class DrumKit{
     }
     activePad() {
         this.classList.toggle('active');
+    }
+    deselectPad() {
+        this.pads.forEach(pad => {
+           pad.classList.remove('active');
+        });
     }
 }
 
@@ -83,7 +87,5 @@ drumkit.resetBtn.addEventListener('click', () => {
 });
 
 drumkit.deselectBtn.addEventListener('click', function () {
-    drumkit.pads.forEach(pad => {
-        pad.classList.remove('active');
-    });
+    drumkit.deselectPad();
 });
