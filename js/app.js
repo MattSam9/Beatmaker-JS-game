@@ -7,25 +7,58 @@ class DrumKit{
         this.hihatSound = document.querySelector('.hihat-sound');
         this.rideSound = document.querySelector('.ride-sound');
         this.playBtn = document.querySelector('.play');
+        this.resetBtn = document.querySelector('.reset');
+        this.deselectBtn = document.querySelector('.deselect');
         this.index = 0;
-        this.bpm = 60;
-        this.playPause;
+        this.bpm = 200;
+        this.isPlaying = null;
     }
     repeat() {
         let step = this.index % 16;
         const activeBar = document.querySelectorAll(`.b${step}`);
+        activeBar.forEach((bar) => {
+          bar.style.animation = `playTrack 0.2s ease-in-out alternate 2`;
+            if (bar.classList.contains('active')) {
+                if (bar.classList.contains('kick-pad')) {
+                    this.kickSound.currentTime = 0;
+                    this.kickSound.play();
+              }
+                if (bar.classList.contains('snare-pad')) {
+                    this.snareSound.currentTime = 0;
+                    this.snareSound.play();
+              }
+                if (bar.classList.contains('hihat-pad')) {
+                    this.hihatSound.currentTime = 0;
+                    this.hihatSound.play();
+              }
+                if (bar.classList.contains('ride-pad')) {
+                    this.rideSound.currentTime = 0;
+                    this.rideSound.play();
+              }
+          }
+        });
         this.index++;
-        console.log(activeBar);
+        console.log(step);
     }
     start() {
         const interval = (60 / this.bpm) * 1000;
-        this.playPause = setInterval(() => {
-          this.repeat();
-        }, interval);
+        if (!this.isPlaying) {
+            this.isPlaying = setInterval(() => {
+                this.repeat();
+            }, interval);
+            this.playBtn.innerText = "Pause";
+        } else {
+            clearInterval(this.isPlaying);
+            this.isPlaying = null;
+            this.playBtn.innerText = "Play";
+        }
     }
-    stop() {
-        clearInterval(this.playPause);
+    
+    reset() {
         this.index = 0;
+        clearInterval(this.isPlaying);
+        this.isPlaying = null;
+        this.playBtn.innerText = "Play";
     }
     activePad() {
         this.classList.toggle('active');
@@ -36,14 +69,21 @@ const drumkit = new DrumKit();
 
 drumkit.pads.forEach(pad => {
     pad.addEventListener('click', drumkit.activePad);
+    pad.addEventListener('animationend', function () {
+        this.style.animation = '';
+    });
 });
 
-drumkit.playBtn.addEventListener('click',  () => {
-    if (drumkit.playBtn.classList.contains("sound-playing")) {
-      drumkit.stop();
-      drumkit.playBtn.classList.remove("sound-playing");
-    } else {
-      drumkit.start();
-      drumkit.playBtn.classList.add("sound-playing");
-    }
+drumkit.playBtn.addEventListener('click', () => {
+    drumkit.start();
+});
+
+drumkit.resetBtn.addEventListener('click', () => {
+    drumkit.reset();
+});
+
+drumkit.deselectBtn.addEventListener('click', function () {
+    drumkit.pads.forEach(pad => {
+        pad.classList.remove('active');
+    });
 });
