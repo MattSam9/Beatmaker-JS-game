@@ -5,6 +5,8 @@ class DrumKit {
     this.snareSound = document.querySelector(".snare-sound");
     this.hihatSound = document.querySelector(".hihat-sound");
     this.rideSound = document.querySelector(".ride-sound");
+    this.otherSound = document.querySelector(".other-sound");
+    this.extendSound = document.querySelector(".extend-sound");
     this.playBtn = document.querySelector(".play");
     this.resetBtn = document.querySelector(".reset");
     this.deselectBtn = document.querySelector(".deselect");
@@ -35,6 +37,14 @@ class DrumKit {
         if (bar.classList.contains("ride-pad")) {
           this.rideSound.currentTime = 0;
           this.rideSound.play();
+        }
+        if (bar.classList.contains("other-pad")) {
+          this.otherSound.currentTime = 0;
+          this.otherSound.play();
+        }
+        if (bar.classList.contains("extend-pad")) {
+          this.extendSound.currentTime = 0;
+          this.extendSound.play();
         }
       }
     });
@@ -81,11 +91,17 @@ class DrumKit {
       case "ride-select":
         this.rideSound.src = event.target.value;
         break;
+      case "other-select":
+        this.otherSound.src = event.target.value;
+        break;
+      case "extend-select":
+        this.extendSound.src = event.target.value;
+        break;
     }
   }
   mute(event) {
     event.target.classList.toggle("active");
-      const muteIndex = event.target.getAttribute("data-track");
+    const muteIndex = event.target.getAttribute("data-track");
     if (event.target.innerHTML === `<i class="volume"></i>`) {
       event.target.innerHTML = `<i class="fas fa-volume-mute"></i>`;
     } else {
@@ -93,32 +109,44 @@ class DrumKit {
     }
     if (event.target.classList.contains("active")) {
       switch (muteIndex) {
-        case '0':
+        case "0":
           this.kickSound.volume = 0;
           break;
-        case '1':
+        case "1":
           this.snareSound.volume = 0;
           break;
-        case '2':
+        case "2":
           this.hihatSound.volume = 0;
           break;
-        case '3':
+        case "3":
           this.rideSound.volume = 0;
+          break;
+        case "4":
+          this.otherSound.volume = 0;
+          break;
+        case "5":
+          this.extendSound.volume = 0;
           break;
       }
     } else {
       switch (muteIndex) {
-        case '0':
+        case "0":
           this.kickSound.volume = 1;
           break;
-        case '1':
+        case "1":
           this.snareSound.volume = 1;
           break;
-        case '2':
+        case "2":
           this.hihatSound.volume = 1;
           break;
-        case '3':
+        case "3":
           this.rideSound.volume = 1;
+          break;
+        case "4":
+          this.otherSound.volume = 1;
+          break;
+        case "5":
+          this.extendSound.volume = 1;
           break;
       }
     }
