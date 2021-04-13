@@ -12,8 +12,9 @@ class DrumKit {
     this.deselectBtn = document.querySelector(".deselect");
     this.selectSounds = document.querySelectorAll(".select-container select");
     this.muteBtn = document.querySelectorAll(".mute");
+    this.bpmChange = document.querySelector('#slider');
     this.index = 0;
-    this.bpm = 100;
+    this.bpm = 150;
     this.isPlaying = null;
   }
   repeat() {
@@ -57,10 +58,12 @@ class DrumKit {
         this.repeat();
       }, interval);
       this.playBtn.innerText = "Pause";
+      this.playBtn.classList.add('active');
     } else {
       clearInterval(this.isPlaying);
       this.isPlaying = null;
       this.playBtn.innerText = "Play";
+      this.playBtn.classList.remove('active');
     }
   }
   reset() {
@@ -68,6 +71,7 @@ class DrumKit {
     clearInterval(this.isPlaying);
     this.isPlaying = null;
     this.playBtn.innerText = "Play";
+    this.playBtn.classList.remove("active");
   }
   activePad() {
     this.classList.toggle("active");
@@ -151,6 +155,19 @@ class DrumKit {
       }
     }
   }
+  bpmText(event) {
+    const sliderText = document.querySelector('.slider-text');
+    sliderText.innerText = event.target.value;
+  }
+  changeTempo(event) {
+    clearInterval(this.isPlaying);
+    this.isPlaying = null;
+    this.bpm = event.target.value;
+    const playBtn = document.querySelector('.play');
+    if (playBtn.classList.contains('active')) {
+      this.start();
+    }
+  }
 }
 
 const drumkit = new DrumKit();
@@ -184,4 +201,12 @@ drumkit.muteBtn.forEach((item) => {
   item.addEventListener("click", (event) => {
     drumkit.mute(event);
   });
+});
+
+drumkit.bpmChange.addEventListener('input', function (event) {
+  drumkit.bpmText(event);
+});
+
+drumkit.bpmChange.addEventListener('change', function (event) {
+  drumkit.changeTempo(event);
 });
