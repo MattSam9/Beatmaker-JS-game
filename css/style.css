@@ -43,12 +43,14 @@ i {
 .kick-track,
 .snare-track,
 .hihat-track,
-.ride-track {
-  width: 90vw;
+.ride-track,
+.other-track,
+.extend-track {
+  min-width: 90vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin: 0rem 3rem 1rem;
 }
 .controls {
   display: flex;
@@ -142,11 +144,13 @@ i {
 .kick,
 .snare,
 .hihat,
-.ride {
+.ride,
+.other,
+.extend {
   display: flex;
   flex-wrap: wrap;
 }
-.kick-container, .snare-container, .hihat-container, .ride-container{
+.kick-container, .snare-container, .hihat-container, .ride-container, .other-container, .extend-container{
   display: flex;
   flex-wrap: wrap;
 }
@@ -190,6 +194,20 @@ i {
 }
 .ride-pad.active {
   background-color: rgb(93, 214, 18);
+}
+.other-pad {
+  background-color: #FDB0A5;
+  border: 0.2rem solid #E65E48;
+}
+.other-pad.active {
+  background-color: #E65E48;
+}
+.extend-pad {
+  background-color: #96F7FD;
+  border: 0.2rem solid #28DAE6;
+}
+.extend-pad.active {
+  background-color: #28DAE6;
 }
 .play,
 .reset,
