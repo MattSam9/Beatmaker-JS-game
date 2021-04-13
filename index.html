@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="./img/icon-logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,18 +16,28 @@
     <link rel="stylesheet" href="./css/style.css">
     <script async src="./js/app.js"></script>
 </head>
+
 <body>
     <h1 class="header">Dev-Matt Beatmaker</h1>
     <div class="sequences">
         <div class="kick-track">
             <div class="controls">
-                <h2>Kick </h2>
+                <h2>Kick &nbsp;</h2>
                 <button data-track="0" class="mute kick-volume"><i class="volume"></i></button>
                 <div class="select-container">
                     <select name="kick-select" id="kick-select">
                         <option value="./sounds/kick-808.wav">kick-808</option>
                         <option value="./sounds/kick-classic.wav">kick-classic</option>
                         <option value="./sounds/kick-heavy.wav">kick-heavy</option>
+                        <option value="./sounds/snare-808.wav">snare-808</option>
+                        <option value="./sounds/snare-acoustic01.wav">snare-acoustic</option>
+                        <option value="./sounds/snare-vinyl02.wav">snare-vinyl</option>
+                        <option value="./sounds/hihat-808.wav">hihat-808</option>
+                        <option value="./sounds/hihat-acoustic01.wav">hihat-acoustic</option>
+                        <option value="./sounds/clap-808.wav">clap-808</option>
+                        <option value="./sounds/cowbell-808.wav">cowbell-808</option>
+                        <option value="./sounds/ride-acoustic01.wav">ride-acoustic01</option>
+                        <option value="./sounds/tom-808.wav">tom-808</option>
                     </select>
                 </div>
             </div>
@@ -66,6 +77,15 @@
                         <option value="./sounds/snare-808.wav">snare-808</option>
                         <option value="./sounds/snare-acoustic01.wav">snare-acoustic</option>
                         <option value="./sounds/snare-vinyl02.wav">snare-vinyl</option>
+                        <option value="./sounds/kick-808.wav">kick-808</option>
+                        <option value="./sounds/kick-classic.wav">kick-classic</option>
+                        <option value="./sounds/kick-heavy.wav">kick-heavy</option>
+                        <option value="./sounds/hihat-808.wav">hihat-808</option>
+                        <option value="./sounds/hihat-acoustic01.wav">hihat-acoustic</option>
+                        <option value="./sounds/clap-808.wav">clap-808</option>
+                        <option value="./sounds/cowbell-808.wav">cowbell-808</option>
+                        <option value="./sounds/ride-acoustic01.wav">ride-acoustic01</option>
+                        <option value="./sounds/tom-808.wav">tom-808</option>
                     </select>
                 </div>
             </div>
@@ -104,6 +124,16 @@
                     <select name="hihat-select" id="hihat-select">
                         <option value="./sounds/hihat-808.wav">hihat-808</option>
                         <option value="./sounds/hihat-acoustic01.wav">hihat-acoustic</option>
+                        <option value="./sounds/snare-808.wav">snare-808</option>
+                        <option value="./sounds/snare-acoustic01.wav">snare-acoustic</option>
+                        <option value="./sounds/snare-vinyl02.wav">snare-vinyl</option>
+                        <option value="./sounds/kick-808.wav">kick-808</option>
+                        <option value="./sounds/kick-classic.wav">kick-classic</option>
+                        <option value="./sounds/kick-heavy.wav">kick-heavy</option>
+                        <option value="./sounds/clap-808.wav">clap-808</option>
+                        <option value="./sounds/cowbell-808.wav">cowbell-808</option>
+                        <option value="./sounds/ride-acoustic01.wav">ride-acoustic01</option>
+                        <option value="./sounds/tom-808.wav">tom-808</option>
                     </select>
                 </div>
             </div>
@@ -136,7 +166,7 @@
         </div>
         <div class="ride-track">
             <div class="controls">
-                <h2>Ride &nbsp;</h2>
+                <h2>Op1 &nbsp;&nbsp;</h2>
                 <button data-track="3" class="mute ride-volume"><i class="volume"></i></button>
                 <div class="select-container">
                     <select name="ride-select" id="ride-select">
@@ -174,6 +204,86 @@
                 </div>
             </div>
         </div>
+        <div class="other-track">
+            <div class="controls">
+                <h2>Op2 &nbsp;&nbsp;</h2>
+                <button data-track="4" class="mute other-volume"><i class="volume"></i></button>
+                <div class="select-container">
+                    <select name="other-select" id="other-select">
+                        <option value="./sounds/clap-808.wav">clap-808</option>
+                        <option value="./sounds/cowbell-808.wav">cowbell-808</option>
+                        <option value="./sounds/ride-acoustic01.wav">ride-acoustic01</option>
+                        <option value="./sounds/tom-808.wav">tom-808</option>
+                    </select>
+                </div>
+            </div>
+            <div class="other">
+                <div class="other-container">
+                    <div class="pad other-pad b0"></div>
+                    <div class="pad other-pad b1"></div>
+                    <div class="pad other-pad b2"></div>
+                    <div class="pad other-pad b3"></div>
+                </div>
+                <div class="other-container">
+                    <div class="pad other-pad b4"></div>
+                    <div class="pad other-pad b5"></div>
+                    <div class="pad other-pad b6"></div>
+                    <div class="pad other-pad b7"></div>
+                </div>
+                <div class="other-container">
+                    <div class="pad other-pad b8"></div>
+                    <div class="pad other-pad b9"></div>
+                    <div class="pad other-pad b10"></div>
+                    <div class="pad other-pad b11"></div>
+                </div>
+                <div class="other-container">
+                    <div class="pad other-pad b12"></div>
+                    <div class="pad other-pad b13"></div>
+                    <div class="pad other-pad b14"></div>
+                    <div class="pad other-pad b15"></div>
+                </div>
+            </div>
+        </div>
+        <div class="extend-track">
+            <div class="controls">
+                <h2>Op3 &nbsp;&nbsp;</h2>
+                <button data-track="5" class="mute extend-volume"><i class="volume"></i></button>
+                <div class="select-container">
+                    <select name="extend-select" id="extend-select">
+                        <option value="./sounds/clap-808.wav">clap-808</option>
+                        <option value="./sounds/cowbell-808.wav">cowbell-808</option>
+                        <option value="./sounds/ride-acoustic01.wav">ride-acoustic01</option>
+                        <option value="./sounds/tom-808.wav">tom-808</option>
+                    </select>
+                </div>
+            </div>
+            <div class="extend">
+                <div class="extend-container">
+                    <div class="pad extend-pad b0"></div>
+                    <div class="pad extend-pad b1"></div>
+                    <div class="pad extend-pad b2"></div>
+                    <div class="pad extend-pad b3"></div>
+                </div>
+                <div class="extend-container">
+                    <div class="pad extend-pad b4"></div>
+                    <div class="pad extend-pad b5"></div>
+                    <div class="pad extend-pad b6"></div>
+                    <div class="pad extend-pad b7"></div>
+                </div>
+                <div class="extend-container">
+                    <div class="pad extend-pad b8"></div>
+                    <div class="pad extend-pad b9"></div>
+                    <div class="pad extend-pad b10"></div>
+                    <div class="pad extend-pad b11"></div>
+                </div>
+                <div class="extend-container">
+                    <div class="pad extend-pad b12"></div>
+                    <div class="pad extend-pad b13"></div>
+                    <div class="pad extend-pad b14"></div>
+                    <div class="pad extend-pad b15"></div>
+                </div>
+            </div>
+        </div>
         <div class="btn-keeper">
             <button class="play">Play</button>
             <button class="reset">Reset</button>
@@ -183,6 +293,9 @@
         <audio class="snare-sound" src="./sounds/snare-808.wav"></audio>
         <audio class="hihat-sound" src="./sounds/hihat-808.wav"></audio>
         <audio class="ride-sound" src="./sounds/clap-808.wav"></audio>
+        <audio class="other-sound" src="./sounds/clap-808.wav"></audio>
+        <audio class="extend-sound" src="./sounds/clap-808.wav"></audio>
     </div>
 </body>
+
 </html>
