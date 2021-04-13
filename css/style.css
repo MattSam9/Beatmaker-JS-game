@@ -12,8 +12,8 @@ body {
   min-height: 100vh;
   background-image: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.9),
-      rgba(240, 240, 240, 0.9)
+      rgba(255, 255, 255, 0.8),
+      rgba(240, 240, 240, 0.8)
     ),
     url("../img/banner 1.jpg");
   background-position: center;
@@ -209,6 +209,11 @@ i {
 .extend-pad.active {
   background-color: #28DAE6;
 }
+.btn-keeper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .play,
 .reset,
 .deselect {
@@ -220,7 +225,7 @@ i {
   padding: 1rem 2rem;
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 3rem;
+  margin: 3rem 1rem;
   box-shadow: 0.1rem 0.1rem 0.3rem 0rem rgb(228, 128, 128);
   border-radius: 0.7rem;
   -webkit-border-radius: 0.7rem;
@@ -242,6 +247,31 @@ i {
   content: url(../img/volume.png);
   width: 2rem;
   padding:0.1rem 0
+}
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+.slider-container #slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  margin: 1rem;
+  width: 30rem;
+  background-color: #6b2033;
+  box-shadow: 0.1rem 0.1rem 0.3rem 0rem rgb(228, 128, 128);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+.slider-container label, .slider-container h2{
+  color: #4b0013;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0rem 0.1rem 0.5rem #b17272;
 }
 @keyframes playTrack {
   from {
