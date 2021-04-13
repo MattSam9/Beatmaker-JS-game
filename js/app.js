@@ -1,4 +1,3 @@
-
 class DrumKit {
   constructor() {
     this.pads = document.querySelectorAll(".pad");
@@ -10,8 +9,9 @@ class DrumKit {
     this.resetBtn = document.querySelector(".reset");
     this.deselectBtn = document.querySelector(".deselect");
     this.selectSounds = document.querySelectorAll(".select-container select");
+    this.muteBtn = document.querySelectorAll(".mute");
     this.index = 0;
-    this.bpm = 200;
+    this.bpm = 100;
     this.isPlaying = null;
   }
   repeat() {
@@ -67,47 +67,93 @@ class DrumKit {
       pad.classList.remove("active");
     });
   }
-   changeSound(event) {
-       switch (event.target.name) {
-           case 'kick-select':
-               this.kickSound.src = event.target.value;
-               break;
-           case 'snare-select':
-               this.snareSound.src = event.target.value;
-               break;
-           case 'hihat-select':
-               this.hihatSound.src = event.target.value;
-               break;
-           case 'ride-select':
-               this.rideSound.src = event.target.value;
-               break;
-        }
+  changeSound(event) {
+    switch (event.target.name) {
+      case "kick-select":
+        this.kickSound.src = event.target.value;
+        break;
+      case "snare-select":
+        this.snareSound.src = event.target.value;
+        break;
+      case "hihat-select":
+        this.hihatSound.src = event.target.value;
+        break;
+      case "ride-select":
+        this.rideSound.src = event.target.value;
+        break;
+    }
+  }
+  mute(event) {
+    event.target.classList.toggle("active");
+      const muteIndex = event.target.getAttribute("data-track");
+    if (event.target.innerHTML === `<i class="volume"></i>`) {
+      event.target.innerHTML = `<i class="fas fa-volume-mute"></i>`;
+    } else {
+      event.target.innerHTML = `<i class="volume"></i>`;
+    }
+    if (event.target.classList.contains("active")) {
+      switch (muteIndex) {
+        case '0':
+          this.kickSound.volume = 0;
+          break;
+        case '1':
+          this.snareSound.volume = 0;
+          break;
+        case '2':
+          this.hihatSound.volume = 0;
+          break;
+        case '3':
+          this.rideSound.volume = 0;
+          break;
+      }
+    } else {
+      switch (muteIndex) {
+        case '0':
+          this.kickSound.volume = 1;
+          break;
+        case '1':
+          this.snareSound.volume = 1;
+          break;
+        case '2':
+          this.hihatSound.volume = 1;
+          break;
+        case '3':
+          this.rideSound.volume = 1;
+          break;
+      }
+    }
   }
 }
 
 const drumkit = new DrumKit();
 
-drumkit.pads.forEach(pad => {
-    pad.addEventListener('click', drumkit.activePad);
-    pad.addEventListener('animationend', function () {
-        this.style.animation = '';
-    });
+drumkit.pads.forEach((pad) => {
+  pad.addEventListener("click", drumkit.activePad);
+  pad.addEventListener("animationend", function () {
+    this.style.animation = "";
+  });
 });
 
-drumkit.playBtn.addEventListener('click', () => {
-    drumkit.start();
+drumkit.playBtn.addEventListener("click", () => {
+  drumkit.start();
 });
 
-drumkit.resetBtn.addEventListener('click', () => {
-    drumkit.reset();
+drumkit.resetBtn.addEventListener("click", () => {
+  drumkit.reset();
 });
 
-drumkit.deselectBtn.addEventListener('click', function () {
-    drumkit.deselectPad();
+drumkit.deselectBtn.addEventListener("click", function () {
+  drumkit.deselectPad();
 });
 
-drumkit.selectSounds.forEach(select => {
-    select.addEventListener('change', function (event) {
-        drumkit.changeSound(event);
-    });
+drumkit.selectSounds.forEach((select) => {
+  select.addEventListener("change", function (event) {
+    drumkit.changeSound(event);
+  });
+});
+
+drumkit.muteBtn.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    drumkit.mute(event);
+  });
 });
