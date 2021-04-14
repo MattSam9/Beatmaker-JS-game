@@ -4,9 +4,9 @@ class DrumKit {
     this.kickSound = document.querySelector(".kick-sound");
     this.snareSound = document.querySelector(".snare-sound");
     this.hihatSound = document.querySelector(".hihat-sound");
-    this.rideSound = document.querySelector(".ride-sound");
-    this.otherSound = document.querySelector(".other-sound");
-    this.extendSound = document.querySelector(".extend-sound");
+    this.op1Sound = document.querySelector(".op1-sound");
+    this.op2Sound = document.querySelector(".op2-sound");
+    this.op3Sound = document.querySelector(".op3-sound");
     this.playBtn = document.querySelector(".play");
     this.resetBtn = document.querySelector(".reset");
     this.deselectBtn = document.querySelector(".deselect");
@@ -35,17 +35,17 @@ class DrumKit {
           this.hihatSound.currentTime = 0;
           this.hihatSound.play();
         }
-        if (bar.classList.contains("ride-pad")) {
-          this.rideSound.currentTime = 0;
-          this.rideSound.play();
+        if (bar.classList.contains("op1-pad")) {
+          this.op1Sound.currentTime = 0;
+          this.op1Sound.play();
         }
-        if (bar.classList.contains("other-pad")) {
-          this.otherSound.currentTime = 0;
-          this.otherSound.play();
+        if (bar.classList.contains("op2-pad")) {
+          this.op2Sound.currentTime = 0;
+          this.op2Sound.play();
         }
-        if (bar.classList.contains("extend-pad")) {
-          this.extendSound.currentTime = 0;
-          this.extendSound.play();
+        if (bar.classList.contains("op3-pad")) {
+          this.op3Sound.currentTime = 0;
+          this.op3Sound.play();
         }
       }
     });
@@ -116,14 +116,14 @@ class DrumKit {
       case "hihat-select":
         this.hihatSound.src = event.target.value;
         break;
-      case "ride-select":
-        this.rideSound.src = event.target.value;
+      case "op1-select":
+        this.op1Sound.src = event.target.value;
         break;
-      case "other-select":
-        this.otherSound.src = event.target.value;
+      case "op2-select":
+        this.op2Sound.src = event.target.value;
         break;
-      case "extend-select":
-        this.extendSound.src = event.target.value;
+      case "op3-select":
+        this.op3Sound.src = event.target.value;
         break;
     }
   }
@@ -147,13 +147,13 @@ class DrumKit {
           this.hihatSound.volume = 0;
           break;
         case "3":
-          this.rideSound.volume = 0;
+          this.op1Sound.volume = 0;
           break;
         case "4":
-          this.otherSound.volume = 0;
+          this.op2Sound.volume = 0;
           break;
         case "5":
-          this.extendSound.volume = 0;
+          this.op3Sound.volume = 0;
           break;
       }
     } else {
@@ -168,13 +168,13 @@ class DrumKit {
           this.hihatSound.volume = 1;
           break;
         case "3":
-          this.rideSound.volume = 1;
+          this.op1Sound.volume = 1;
           break;
         case "4":
-          this.otherSound.volume = 1;
+          this.op2Sound.volume = 1;
           break;
         case "5":
-          this.extendSound.volume = 1;
+          this.op3Sound.volume = 1;
           break;
       }
     }
