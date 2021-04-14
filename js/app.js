@@ -12,7 +12,7 @@ class DrumKit {
     this.deselectBtn = document.querySelector(".deselect");
     this.selectSounds = document.querySelectorAll(".select-container select");
     this.muteBtn = document.querySelectorAll(".mute");
-    this.bpmChange = document.querySelector('#slider');
+    this.bpmChange = document.querySelector("#slider");
     this.index = 0;
     this.bpm = 150;
     this.isPlaying = null;
@@ -58,28 +58,52 @@ class DrumKit {
         this.repeat();
       }, interval);
       this.playBtn.innerText = "Pause";
-      this.playBtn.classList.add('active');
+      this.playBtn.classList.add("active");
     } else {
       clearInterval(this.isPlaying);
       this.isPlaying = null;
       this.playBtn.innerText = "Play";
-      this.playBtn.classList.remove('active');
+      this.playBtn.classList.remove("active");
     }
   }
   reset() {
-    this.index = 0;
     clearInterval(this.isPlaying);
+    this.index = 0;
     this.isPlaying = null;
     this.playBtn.innerText = "Play";
     this.playBtn.classList.remove("active");
   }
-  activePad() {
-    this.classList.toggle("active");
+  activePad(pad) {
+    if (pad.classList.contains("active")) {
+      pad.classList.remove("active");
+      this.deselectBtn.innerText = "Select All";
+    } else {
+      pad.classList.add("active");
+      this.deselectBtn.innerText = "Deselect All";
+    }
   }
   deselectPad() {
+    let flag = true;
+    let btnNameFlag = false;
     this.pads.forEach((pad) => {
-      pad.classList.remove("active");
+      if (pad.classList.contains("active")) {
+        flag = false;
+      }
     });
+    this.pads.forEach((pad) => {
+      if (flag) {
+        pad.classList.add("active");
+        btnNameFlag = true;
+      } else {
+        pad.classList.remove("active");
+      }
+    });
+
+    if (btnNameFlag) {
+      this.deselectBtn.innerText = "Deselet All";
+    } else {
+      this.deselectBtn.innerText = "Selet All";
+    }
   }
   changeSound(event) {
     switch (event.target.name) {
@@ -156,15 +180,15 @@ class DrumKit {
     }
   }
   bpmText(event) {
-    const sliderText = document.querySelector('.slider-text');
+    const sliderText = document.querySelector(".slider-text");
     sliderText.innerText = event.target.value;
   }
   changeTempo(event) {
     clearInterval(this.isPlaying);
     this.isPlaying = null;
     this.bpm = event.target.value;
-    const playBtn = document.querySelector('.play');
-    if (playBtn.classList.contains('active')) {
+    const playBtn = document.querySelector(".play");
+    if (playBtn.classList.contains("active")) {
       this.start();
     }
   }
@@ -173,7 +197,9 @@ class DrumKit {
 const drumkit = new DrumKit();
 
 drumkit.pads.forEach((pad) => {
-  pad.addEventListener("click", drumkit.activePad);
+  pad.addEventListener("click", () =>{
+    drumkit.activePad(pad);
+});
   pad.addEventListener("animationend", function () {
     this.style.animation = "";
   });
