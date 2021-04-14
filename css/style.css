@@ -43,9 +43,9 @@ i {
 .kick-track,
 .snare-track,
 .hihat-track,
-.ride-track,
-.other-track,
-.extend-track {
+.op1-track,
+.op2-track,
+.op3-track {
   min-width: 90vw;
   display: flex;
   flex-direction: row;
@@ -144,13 +144,13 @@ i {
 .kick,
 .snare,
 .hihat,
-.ride,
-.other,
-.extend {
+.op1,
+.op2,
+.op3 {
   display: flex;
   flex-wrap: wrap;
 }
-.kick-container, .snare-container, .hihat-container, .ride-container, .other-container, .extend-container{
+.kick-container, .snare-container, .hihat-container, .op1-container, .op2-container, .op3-container{
   display: flex;
   flex-wrap: wrap;
 }
@@ -188,25 +188,25 @@ i {
 .hihat-pad.active {
   background-color: rgb(228, 160, 25);
 }
-.ride-pad {
+.op1-pad {
   background-color: rgb(194, 224, 175);
   border: 0.2rem solid rgb(93, 214, 18);
 }
-.ride-pad.active {
+.op1-pad.active {
   background-color: rgb(93, 214, 18);
 }
-.other-pad {
+.op2-pad {
   background-color: #FDB0A5;
   border: 0.2rem solid #E65E48;
 }
-.other-pad.active {
+.op2-pad.active {
   background-color: #E65E48;
 }
-.extend-pad {
+.op3-pad {
   background-color: #96F7FD;
   border: 0.2rem solid #28DAE6;
 }
-.extend-pad.active {
+.op3-pad.active {
   background-color: #28DAE6;
 }
 .btn-keeper{
