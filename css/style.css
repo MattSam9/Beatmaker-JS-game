@@ -46,7 +46,7 @@ i {
   -o-transform: translateY(1rem);
 }
 .logo h1:hover{
-
+  text-shadow: 0.2rem 0.2rem 1rem rgb(182, 28, 54);
 }
 .sequences {
   display: flex;
