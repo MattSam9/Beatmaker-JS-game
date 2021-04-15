@@ -25,14 +25,28 @@ svg,
 i {
   pointer-events: none;
 }
-.header {
+.logo {
   display: flex;
   justify-content: center;
-  margin: 3rem 0;
-  font-size: 3.5rem;
-  color: #a8012a;
+  align-items: center;
+  margin: 1rem;
+}
+.logo img{
+  width: 8rem;
+}
+.logo h1{
+  font-size: 3rem;
+  color: #aa3855;
   text-shadow: 0.1rem 0.1rem 0.5rem #1a000788;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transform: translateY(1rem);
+  -webkit-transform: translateY(1rem);
+  -moz-transform: translateY(1rem);
+  -ms-transform: translateY(1rem);
+  -o-transform: translateY(1rem);
+}
+.logo h1:hover{
+
 }
 .sequences {
   display: flex;
