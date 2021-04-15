@@ -13,6 +13,7 @@ class DrumKit {
     this.selectSounds = document.querySelectorAll(".select-container select");
     this.muteBtn = document.querySelectorAll(".mute");
     this.bpmChange = document.querySelector("#slider");
+    this.volumeSlider = document.querySelectorAll(".volume-slider");
     this.index = 0;
     this.bpm = 150;
     this.isPlaying = null;
@@ -57,7 +58,7 @@ class DrumKit {
       this.isPlaying = setInterval(() => {
         this.repeat();
       }, interval);
-      this.playBtn.innerText = "Pause";
+      this.playBtn.innerText = "Stop";
       this.playBtn.classList.add("active");
     } else {
       clearInterval(this.isPlaying);
@@ -192,6 +193,29 @@ class DrumKit {
       this.start();
     }
   }
+  changeVolume(event) {
+    const slideVolume = Math.round(event.target.value / 10)/10;
+    switch (event.target.name) {
+      case 'kick-volume':
+        this.kickSound.volume = slideVolume;
+        break;
+      case 'snare-volume':
+        this.snareSound.volume = slideVolume;
+        break;
+      case 'hihat-volume':
+        this.hihatSound.volume = slideVolume;
+        break;
+      case 'op1-volume':
+        this.op1Sound.volume = slideVolume;
+        break;
+      case 'op2-volume':
+        this.op2Sound.volume = slideVolume;
+        break;
+      case 'op3-volume':
+        this.op3Sound.volume = slideVolume;
+        break;
+    }
+  }
 }
 
 const drumkit = new DrumKit();
@@ -235,4 +259,8 @@ drumkit.bpmChange.addEventListener('input', function (event) {
 
 drumkit.bpmChange.addEventListener('change', function (event) {
   drumkit.changeTempo(event);
+});
+
+drumkit.volumeSlider.forEach(slide => {
+  slide.addEventListener('change', (event) => { drumkit.changeVolume(event); });
 });
